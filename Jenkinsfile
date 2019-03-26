@@ -204,7 +204,9 @@ pipeline {
 
                 stage('Embed Browserstack report') {
                     steps{
-                        junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: ''
+                        script{
+                            junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
+                        }
                     }
 
                 }
