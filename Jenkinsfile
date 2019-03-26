@@ -202,15 +202,24 @@ pipeline {
                     }*/
                 }
 
-                stage('Embed Browserstack report') {
+                /*stage('Embed Browserstack report') {
                     steps{
                         script{
                             junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                         }
                     }
 
+                }*/
+            }
+        }
+
+        stage('Embed Browserstack report') {
+            steps{
+                script{
+                    junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                 }
             }
+
         }
     }
 }
