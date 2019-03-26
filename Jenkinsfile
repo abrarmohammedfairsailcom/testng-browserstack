@@ -193,14 +193,20 @@ pipeline {
                                 }
                             }
                         //}
-                        //junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                     }
-                    post {
+                    /*post {
                         always {
                             //step([$class: 'Publisher', showFailedBuilds: true])
                             junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                         }
+                    }*/
+                }
+
+                stage('Embed Browserstack report') {
+                    steps{
+                        junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                     }
+
                 }
             }
         }
