@@ -80,9 +80,9 @@
                 <artifactId>automate-maven-plugin</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <configuration>
-                    <source>1.8.0</source>
-                    <target>1.8.0</target>
-                    <complianceLevel>1.8.0</complianceLevel>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <complianceLevel>1.8</complianceLevel>
                 </configuration>
                 <executions>
                     <execution>
