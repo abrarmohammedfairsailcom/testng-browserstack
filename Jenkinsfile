@@ -188,11 +188,12 @@ pipeline {
                                     //sh 'mvn clean install -DskipTests && cd AutomationVerticals/CompensationPlanning && mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/ui_testng.xml'
                                 } else {
                                     //bat 'mvn clean install -DskipTests && cd AutomationVerticals\\CompensationPlanning && mvn clean test -Dsurefire.suiteXmlFiles=src\\test\\resources\\ui_testng.xml'
+                                    bat 'mvn clean compile'
                                     bat 'mvn test -P single'
                                 }
                             }
                         //}
-                        junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
+                        //junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                     }
                     post {
                         always {
