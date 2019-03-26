@@ -192,6 +192,7 @@ pipeline {
                                 }
                             }
                         //}
+                        junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
                     }
                     post {
                         always {
