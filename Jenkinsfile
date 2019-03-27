@@ -12,13 +12,15 @@ pipeline {
                     echo "Running E2E Tests on Browserstack"
                     bat 'mvn clean install -DskipTests && cd AutomationVerticals\\CompensationPlanning && mvn clean test -Dsurefire.suiteXmlFiles=src\\test\\resources\\ui_testng.xml'
                 }
+                junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: '**/target/surefire-reports/TEST-*.xml'
             }
-            post {
-                always {
-                    //step([$class: 'Publisher', showFailedBuilds: true])
-                    junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: '**/target/surefire-reports/TEST-*.xml'
-                }
-            }
+
+//            post {
+//                always {
+//                    //step([$class: 'Publisher', showFailedBuilds: true])
+//                    junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: '**/target/surefire-reports/TEST-*.xml'
+//                }
+//            }
         }
 
         /*stage('Embed Browserstack report') {
