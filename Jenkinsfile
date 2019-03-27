@@ -16,7 +16,7 @@ pipeline {
             post {
                 always {
                     //step([$class: 'Publisher', showFailedBuilds: true])
-                    junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: 'target/surefire-reports/TEST-*.xml'
+                    junit testDataPublishers: [[$class: 'AutomateTestDataPublisher']], testResults: '**/target/surefire-reports/TEST-*.xml'
                 }
             }
         }
